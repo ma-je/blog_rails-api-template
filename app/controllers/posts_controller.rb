@@ -17,7 +17,6 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    Post.create(post_params)
     @post = Post.new(post_params)
 
     if @post.save
@@ -29,6 +28,7 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
+    Post.update(post_params)
     if @post.update(post_params)
       render json: @post
     else
