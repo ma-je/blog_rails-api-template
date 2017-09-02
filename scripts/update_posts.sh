@@ -1,11 +1,8 @@
-#!/bin/bash
-
 API="${API_ORIGIN:-http://localhost:4741}"
-# remember to come back and put in the heroku link
-URL_PATH="/posts"
-curl "${API}${URL_PATH}" \
+URL_PATH="/posts/"
+curl "${API}${URL_PATH}/${ID}" \
   --include \
-  --request POST \
+  --request PATCH \
   --header "Authorization: Token token=${TOKEN}" \
   --header "Content-Type: application/json" \
   --data '{
@@ -14,6 +11,3 @@ curl "${API}${URL_PATH}" \
       "content": "'"${CONTENT}"'"
     }
   }'
-
-echo
-# "user_id": "1", keeping this here just in case needed later

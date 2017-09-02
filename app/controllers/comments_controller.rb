@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CommentsController < ApplicationController
+class CommentsController < OpenReadController
   before_action :set_comment, only: %i[show update destroy]
 
   # GET /comments
