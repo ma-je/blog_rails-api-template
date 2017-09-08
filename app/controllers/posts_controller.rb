@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PostsController < ProtectedController
+class PostsController < OpenReadController
   before_action :set_post, only: %i[show update destroy]
 
   # GET /posts
