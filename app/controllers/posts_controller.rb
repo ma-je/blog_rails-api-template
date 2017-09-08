@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PostsController < OpenReadController
+class PostsController < ProtectedController
   before_action :set_post, only: %i[show update destroy]
 
   # GET /posts
@@ -28,7 +28,10 @@ class PostsController < OpenReadController
 
   # PATCH/PUT /posts/1
   def update
-    @post = Post.update(post_params)
+    binding.pry
+    # @post
+
+    @post.update(post_params)
     render json: @post
     #@post.update(params[:post])
     #if @post.update(post_params)
