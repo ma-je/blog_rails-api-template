@@ -11,8 +11,12 @@ The comments belongs to users and posts
 Here's the link to the ERD: https://imgur.com/thJxNDf
 
 Below are the links to the app:
-https://github.com/ma-je/Blog-api
+links to app: https://github.com/ma-je/Blog-api
 https://github.com/ma-je/project_two_front_end
+https://ma-je.github.io/project_two_front_end/
+
+
+herokuapp link: https://dashboard.heroku.com/apps/project-two-blog
 
 License
 1.  All content is licensed under a CC BY NC SA 4.0 license.
