@@ -18,7 +18,6 @@ class PostsController < OpenReadController
   # POST /posts
   def create
     @post = Post.new(post_params)
-
     if @post.save
       render json: @post, status: :created, location: @post
     else
@@ -28,11 +27,18 @@ class PostsController < OpenReadController
 
   # PATCH/PUT /posts/1
   def update
-    binding.pry
-    # @post
+    if @post.update(post_params)
+      render json: @post
+    else
+      render json: @post.errors, status: :unprocessable_entity
+    end
 
-    @post.update(post_params)
-    render json: @post
+    #@post = Post.find(params[:id])
+
+    # binding.pry
+    # @post.update(post_params)
+    # render json: @post
+
     #@post.update(params[:post])
     #if @post.update(post_params)
 
@@ -46,7 +52,7 @@ class PostsController < OpenReadController
   def destroy
     @post.destroy
 
-    head :no_content
+    # head :no_content
   end
 
   private
@@ -59,6 +65,6 @@ class PostsController < OpenReadController
 
   # Only allow a trusted parameter "white list" through.
   def post_params
-    params.require(:post).permit(:title, :content, :user_id)
+    params.require(:post).permit(:title, :content, :user_id,)
   end
 end
