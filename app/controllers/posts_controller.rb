@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PostsController < ApplicationController
+class PostsController < OpenReadController
   before_action :set_post, only: %i[show update destroy]
 
   # GET /posts
@@ -18,7 +18,6 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
-
     if @post.save
       render json: @post, status: :created, location: @post
     else
@@ -28,17 +27,32 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-    Post.update(post_params)
     if @post.update(post_params)
       render json: @post
     else
       render json: @post.errors, status: :unprocessable_entity
     end
+
+    #@post = Post.find(params[:id])
+
+    # binding.pry
+    # @post.update(post_params)
+    # render json: @post
+
+    #@post.update(params[:post])
+    #if @post.update(post_params)
+
+      #render json: @post
+    #else
+      #render json: @post.errors, status: :unprocessable_entity
+    #end
   end
 
   # DELETE /posts/1
   def destroy
     @post.destroy
+
+    # head :no_content
   end
 
   private
@@ -51,6 +65,6 @@ class PostsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def post_params
-    params.require(:post).permit(:title, :content, :user_id)
+    params.require(:post).permit(:title, :content, :user_id,)
   end
 end
