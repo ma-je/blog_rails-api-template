@@ -13,3 +13,8 @@ Here's the link to the ERD: https://imgur.com/thJxNDf
 Below are the links to the app:
 https://github.com/ma-je/Blog-api
 https://github.com/ma-je/project_two_front_end
+
+License
+1.  All content is licensed under a CC BY NC SA 4.0 license.
+1.  All software code is licensed under GNU GPLv3. For commercial use or
+    alternative licensing, please contact legal@ga.co.
