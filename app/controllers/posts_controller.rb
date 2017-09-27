@@ -27,7 +27,6 @@ class PostsController < OpenReadController
 
   # PATCH/PUT /posts/1
   def update
-    binding.pry
     if @post.update(post_params)
       render json: @post
     else
@@ -35,8 +34,6 @@ class PostsController < OpenReadController
     end
 
     #@post = Post.find(params[:id])
-
-    # binding.pry
     # @post.update(post_params)
     # render json: @post
 
