@@ -2,6 +2,7 @@
 
 class PostsController < OpenReadController
   before_action :set_post, only: %i[show update destroy]
+  before_action :post_params, only: [:update]
 
   # GET /posts
   def index
@@ -34,8 +35,6 @@ class PostsController < OpenReadController
     end
 
     #@post = Post.find(params[:id])
-
-    # binding.pry
     # @post.update(post_params)
     # render json: @post
 
@@ -65,6 +64,6 @@ class PostsController < OpenReadController
 
   # Only allow a trusted parameter "white list" through.
   def post_params
-    params.require(:post).permit(:title, :content, :user_id,)
+    params.require(:post).permit(:title, :content, :user_id)
   end
 end
